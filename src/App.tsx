@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// importando um componente para a app
+
+import { ExperienceBar } from './components/ExperienceBar';
+import './styles/global.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <ExperienceBar />
     </div>
   );
 }
 
 export default App;
+
+// 'Botão1' é children de Button (propriedade: children)
+
+// em react, os arquivos '.css' tem que ser importados para um arquivo javascript e não para html

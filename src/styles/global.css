@@ -1,0 +1,105 @@
+/* https://www.youtube.com/watch?v=xvdAoEGRFyI (1:08:00) */
+
+/**** configurando sytle p/ todos elementos (*) ****/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/** utilizando variáveis no css (1:13:23) **/
+:root {
+    --white:#fff;
+    --background: #F2F3F5;
+    --gray-line: #DCDDE0;
+    --text: #666666;
+    --text-highlight: #B3B9FF;
+    --title: #2E384D;
+    --red: #E83F5B;
+    --green: #4CD62B;
+    --blue: #5965E0;
+    --blue-dark: #4953B8;
+    --blue-twitter: #2AA9E0;
+}
+
+/** definindo parametros para atender varios tamanhos de telas (1:16:07)**/
+@media(max-width: 1080px){
+    html {
+        font-size: 93.75%;
+    }
+}
+/** tela mobile, tablet - 87.5%=14px**/
+@media(max-width: 720px){
+    html {
+        font-size: 87.5%;
+    }
+}
+
+/*** definindo cores do body da aplicação ***/
+body {
+    background: var(--background);
+    color: var(--text);
+}
+
+/*** definindo fonts , 1rem=16px***/
+body, input, textarea, button {
+    font: 400 1rem "Inter", sans-serif;
+}
+
+/*** definindo pointer para buttons **/
+button {
+    cursor: pointer;
+}
+
+/*** retirando a linha underline e cores de todos os links ***/
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+        /***estilizando o html no App.tsx 1:23:30***/
+/* o componente ExperienceBar ficará dentro de um container */
+.container {
+    height: 100vh; /* 'vh' ocupa 100% da viewport hight*/
+    max-width: 992px;
+    margin: 0 auto; /*centraliza nas laterais*/
+    padding: 2.5rem 2rem; /*desloca para baixo um pouco*/
+
+    display: flex;
+    flex-direction: column; /*os próximos elementos vão ficar abaixo*/
+}
+
+/** (1:21:15) **/
+/* estilização do componente ExperienceBar */
+.experience-bar {
+    display: flex; 
+    align-items: center; /* alinha verticalmente ao centro, 'row' ficaria ao lado*/
+}
+
+.experience-bar span {
+    font-size: 1rem;
+}
+
+/* estiliza apenas um nivel abaixo '>div' que é a barra fixa*/
+.experience-bar > div {
+   flex: 1; /*ocupa largura maxima do container*/
+   height: 4px; /*em pixel pra ter tamanho fixo*/
+   border-radius: 4px;
+   background: var(--gray-line); /*cor da barra*/
+   margin: 0 1.5rem; /*margem inicial e final*/
+   position: relative;
+}
+
+/* estilizando a barra móvel que ficará em cima da barra fixa (o segundo div)*/
+.experience-bar > div div {
+    height: 4px;
+    border-radius: 4px;
+    background: var(--green);
+}
+
+/* estilizando o span da barra móvel */
+span.current-experience {
+    position: absolute; /*ref a definição da posição no style do elemento*/
+    top: 12px;
+    transform: translateX(-50%); /*chamou os dados acima a esquerda em 50%*/
+}
